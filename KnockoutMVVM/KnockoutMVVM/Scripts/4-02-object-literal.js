@@ -66,8 +66,8 @@
                         );
             });
         }
-
-//        //PAPA: 'This" conflict
+        ,
+        //PAPA: 'This" conflict
 //        grandTotal: ko.computed(function () {
 //            var total = 0;
 //            var v = this; // ends up being the DOM window or HTML document

@@ -105,6 +105,10 @@
     <Content Include="images\Taylor Baby Taylor Left-Handed Acoustic Guitar.png" />
     <Content Include="images\Taylor Koa Series K66ce Grand Symphony 12-String Cutaway Acoustic Electric Guitar.png" />
     <Content Include="images\Taylor T5 Standard Acoustic-Electric Guitar with Spruce Top.png" />
+    <Content Include="Scripts\4-01-namespace.js" />
+    <Content Include="Scripts\4-02-object-literal.js" />
+    <Content Include="Scripts\4-03-module-pattern.js" />
+    <Content Include="Scripts\4-04-revealing-module-pattern.js" />
     <Content Include="Scripts\data.js" />
     <Content Include="Scripts\jquery-1.8.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
