@@ -78,6 +78,10 @@
     <Content Include="html\3-08-builtin-bindings-click-event-visible.html" />
     <Content Include="html\3-09-builtin-bindings-css-style.html" />
     <Content Include="html\3-10-builtin-bindings-attr.html" />
+    <Content Include="html\4-01-namespacing.html" />
+    <Content Include="html\4-02-object-literal.html" />
+    <Content Include="html\4-03-module-pattern.html" />
+    <Content Include="html\4-04-revealing-module-pattern.html" />
     <Content Include="images\314ce.png" />
     <Content Include="images\Dunlop Trigger Classical Guitar Capo.png" />
     <Content Include="images\El Dorado Vintage Hand-Tooled Leather Guitar Strap.png" />
