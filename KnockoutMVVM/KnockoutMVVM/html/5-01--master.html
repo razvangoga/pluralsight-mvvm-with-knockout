@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Knockout: Control of Flow</title>
+    <link href="../css/fonts.css" rel="stylesheet" type="text/css" />
+    <link href="../css/styles.css" rel="stylesheet" type="text/css" />
+    <script src="../scripts/jquery-1.7.1.js" type="text/javascript"></script>
+    <script src="../scripts/knockout-2.0.0.js" type="text/javascript"></script>
+    <script src="../scripts/data.js" type="text/javascript"></script>
+    <script src="../Scripts/5-01-control-of-flow.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="page">
+        <div class="header" data-bind="with: metadata">
+            <h1 data-bind="text: pageTitle">
+            </h1>
+            <div data-bind="with:personal">
+                <a href="00-index.html">Index</a> <a data-bind="attr: {href: link, title: text}, text: text"
+                                                     class="personalCss"></a>
+            </div>
+        </div>
+        <div id="main">
+            <div class="showroom">
+                <div>
+                    <table>
+                        <thead>
+                            <tr><th>Product</th><th>Price</th><th>Quantity</th><th>Ext. Price</th><th></th></tr>
+                        </thead>
+                        <tbody data-bind="template: {name: 'productTmpl', foreach: lines}">
+                        </tbody>
+                    </table>
+                    <div data-bind="template: {name: 'totalsTmpl'}"></div>
+                </div>
+            </div>
+        </div>
+        <div class="topics">
+            <span>Explores:</span>
+            <ul>
+                <li>control of flow</li>
+                <li>
+                    <ul>
+                        <li>if</li>
+                        <li>ifnot</li>
+                        <li>with</li>
+                        <li>foreach</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script type="text/html" id="totalsTmpl">
+        <span data-bind="text: lines().length"></span><span>item(s) in your shopping cart</span>
+        <p data-bind="if: lines().length > 0">
+            Total value: <span data-bind="text: my.formatCurrency(grandTotal())"></span>
+        </p>
+        <button data-bind="click: addLine">Add product</button>
+    </script>
+    <script type="text/html" id="productTmpl">
+        <tr>
+            <td style="width: 25px;">
+                <select data-bind="options:products, value:product, optionsText: 'shortDesc', optionsCaption:'Select a product ...'">
+                </select>
+            </td>
+            <td data-bind="with: product" style="width: 50px;">
+                <div>
+                    <img data-bind="attr: {src: photoUrl, alt:shortDesc, title:shortDesc}" 
+                         class="photoThumbnail"/>
+                </div>
+                <div data-bind="with: model">
+                    <div data-bind="text: brand" class="textValues"></div>
+                    <div data-bind="text: name" class="textValues"></div>
+                </div>
+            </td>
+        <!--
+            <td data-bind="if: product" style="width: 100px;">
+                <div>
+                    <img data-bind="attr: {src: product().photoUrl, alt:product().shortDesc, title:product().shortDesc}" 
+                         class="photoThumbnail"/>
+                </div>
+                <div style="float:left">
+                    <span data-bind="text: product().model().brand"></span><span data-bind="text: product().model().name"></span>
+                </div>
+            </td>
+            -->
+            <td data-bind="if: product" style="width: 100px;">
+                <span data-bind="text: my.formatCurrency(product().salePrice())" class="textValues"></span>
+            </td>
+            <td style="width: 100px;">
+                <input data-bind="visible: product, value: quantity, valueUpdate: 'afterkeydown'" class="integerInput"/>
+            </td>
+            <td style="width: 100px;">
+                <span data-bind="visible: product, text: my.formatCurrency(extendedPrice())" class="textValues"></span>
+            </td>
+            <td style="width: 100px;">
+                <a href="#" data-bind="click: removeLine">Remove</a>
+            </td>
+        </tr>
+    </script>
+</body>
+</html>
