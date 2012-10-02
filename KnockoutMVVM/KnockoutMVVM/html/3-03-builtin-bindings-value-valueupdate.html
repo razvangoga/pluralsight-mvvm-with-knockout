@@ -80,6 +80,41 @@
 					<td><span>model.code: </span><span data-bind="text: model.code"></span></td>
 				</tr>
 
+				<tr>
+					<td>
+						<div class="caption">value (valueUpdate)</div>
+						<div class="notes">text input (change)</div>
+					</td>
+					<td><input type="text" data-bind="value: salePrice, valueUpdate: 'change'"/></td>
+					<td><span>salePrice: </span><span data-bind="text: salePrice"></span></td>
+				</tr>
+
+				<tr>
+					<td>
+						<div class="caption">value (valueUpdate)</div>
+						<div class="notes">text input (after key down)</div>
+					</td>
+					<td><input type="text" data-bind="value: salePrice, valueUpdate: 'afterkeydown'"/></td>
+					<td><span>salePrice: </span><span data-bind="text: salePrice"></span></td>
+				</tr>
+
+				<tr>
+					<td>
+						<div class="caption">value (valueUpdate)</div>
+						<div class="notes">text input (key up)</div>
+					</td> 
+					<td><input type="text" data-bind="value: salePrice, valueUpdate: 'keyup'"/></td>
+					<td><span>salePrice: </span><span data-bind="text: salePrice"></span></td>
+				</tr>
+
+				<tr>
+					<td>
+						<div class="caption">value (valueUpdate)</div>
+						<div class="notes">text input (key press)</div>
+					</td>
+					<td><input type="text" data-bind="value: salePrice, valueUpdate: 'keypress'"/></td>
+					<td><span>salePrice: </span><span data-bind="text: salePrice"></span></td>
+				</tr>
 
 			</table>
 			</div>
