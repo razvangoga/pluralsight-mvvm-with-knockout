@@ -55,6 +55,22 @@
             // read/write computed
             ///////////////////////////////////////////////////
 
+            my.vm.extendedPrice = ko.computed({
+                read: function () {
+                    var extendedPrice = this.product()
+                        ? this.product().salePrice() * parseInt("0" + this.quantity(), 10)
+                        : 0;
+                    return '$' + extendedPrice.toFixed(2);
+                },
+                write: function (value) {
+                    value = parseFloat(value.replace(/[^\.\d]/g, ""));
+                    value = isNaN(value) ? 0 : value;
+                    var unitPrice = value / this.quantity();
+                    this.product().salePrice(unitPrice);
+                },
+                owner: my.vm
+            });
+
             ko.applyBindings(my.vm);
         });
     </script>
@@ -73,39 +89,40 @@
             <div class="showroom">
                 <div>
                     <div>
-                        <img data-bind="attr: {src:product().photoUrl, title:product().shortDescription}" class="photoThumbnail"/>
+                        <img data-bind="attr: {src:product().photoUrl, title:product().shortDescription}"
+                            class="photoThumbnail" />
                     </div>
                     <div>
                         <span class="caption">Product:</span><span data-bind="text:product().shortDescription"></span>
                     </div>
                     <div>
                         <span class="caption">Unit Price:</span>
-                        <input data-bind="value: product().salePrice, valueUpdate:'afterkeydown'"  class="currencyInput"/>
+                        <input data-bind="value: product().salePrice, valueUpdate:'afterkeydown'" class="currencyInput" />
                     </div>
                     <div>
                         <span class="caption">Quantity:</span>
-                        <input data-bind="value: quantity, valueUpdate: 'afterkeydown'" class="integerInput"/>
+                        <input data-bind="value: quantity, valueUpdate: 'afterkeydown'" class="integerInput" />
                     </div>
                     <div>
                         <span class="caption">Ext. Price:</span>
-
+                        <input type="text" data-bind="value: extendedPrice, valueUpdate:'afterkeydown'" />
                     </div>
                 </div>
+            </div>
         </div>
-    </div>
-    <div class="topics">
-        <span>Explores:</span>
-        <ul>
-            <li>observable</li>
-            <li>computed (basic read only for the photo url)</li>
-            <li>computed (read/write for the extended price)</li>
-            <li>click</li>
-            <li>attr</li>
-            <li>text</li>
-            <li>value</li>
-			<li>valueUpdate: 'afterkeydown'</li>
-        </ul>
-    </div>
+        <div class="topics">
+            <span>Explores:</span>
+            <ul>
+                <li>observable</li>
+                <li>computed (basic read only for the photo url)</li>
+                <li>computed (read/write for the extended price)</li>
+                <li>click</li>
+                <li>attr</li>
+                <li>text</li>
+                <li>value</li>
+                <li>valueUpdate: 'afterkeydown'</li>
+            </ul>
+        </div>
     </div>
 </body>
 </html>
