@@ -17,7 +17,7 @@
             </h1>
             <div data-bind="with:personal">
                 <a href="00-index.html">Index</a> <a data-bind="attr: {href: link, title: text}, text: text"
-                                                     class="personalCss"></a>
+                    class="personalCss"></a>
             </div>
         </div>
         <div id="main">
@@ -25,7 +25,24 @@
                 <div>
                     <table>
                         <thead>
-                            <tr><th></th><th>Product</th><th>Price</th><th>Quantity</th><th>Ext. Price</th><th></th></tr>
+                            <tr>
+                                <th>
+                                </th>
+                                <th>
+                                    Product
+                                </th>
+                                <th>
+                                    Price
+                                </th>
+                                <th>
+                                    Quantity
+                                </th>
+                                <th>
+                                    Ext. Price
+                                </th>
+                                <th>
+                                </th>
+                            </tr>
                         </thead>
                         <tbody data-bind="foreach: lines">
                             <tr>
@@ -63,16 +80,18 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div>
-                        <span data-bind="text: lines().length"></span><span>item(s) in your shopping cart</span>
-                        <p data-bind="if: lines().length > 0">
-                            Total value: <span data-bind="text: my.formatCurrency(grandTotal())"></span>
-                        </p>
-                        <button data-bind="click: addLine">Add product</button>
+                    <div data-bind="template: {name: 'totalsTempl'}">
                     </div>
                 </div>
             </div>
         </div>
+        <script type="text/html" id="totalsTempl">
+                        <span data-bind="text: lines().length"></span><span>item(s) in your shopping cart</span>
+                        <p data-bind="if: lines().length > 0">
+                            Total value: <span data-bind="text: my.formatCurrency(grandTotal())"></span>
+                        </p>
+                        <button data-bind="click: addLine">Add product</button>        
+        </script>
         <div class="topics">
             <span>Explores:</span>
             <ul>
