@@ -208,6 +208,7 @@
     <Content Include="scripts\MicrosoftMvcValidation.debug.js" />
     <Content Include="scripts\MicrosoftMvcValidation.js" />
     <Content Include="templates\cartItems.tmpl.html" />
+    <Content Include="templates\productDetailsWithStarRating.tmpl.html" />
     <Content Include="templates\productDetailsWithJqButton.tmpl.html" />
     <Content Include="templates\productDetailsWithFade.tmpl.html" />
     <Content Include="templates\metadata\topics.tmpl.html" />
