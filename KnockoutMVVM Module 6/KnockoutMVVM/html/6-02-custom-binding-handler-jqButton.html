@@ -10,7 +10,7 @@
     <script src="/scripts/jquery-1.8.2.js" type="text/javascript"></script>
     <script src="/scripts/knockout-2.1.0.js" type="text/javascript"></script>
     <script src="/scripts/koExternalTemplateEngine_all.js" type="text/javascript"></script>
-    <script src="/scripts/jquery-ui-1.8.17.js" type="text/javascript"></script>
+    <script src="/scripts/jquery-ui-1.8.23.js" type="text/javascript"></script>
     <script src="/js/data.js" type="text/javascript"></script>
     <script src="/js/utils.js" type="text/javascript"></script>
     <script src="/js/binding-handlers.js" type="text/javascript"></script>
@@ -39,7 +39,7 @@
             <!-- ko if: selectedProduct() -->
             <div class="leftFloat" data-bind="fadeVisible: canShowDetails()">
                 <div class="productDetailsArea">
-                    <!-- ko template: {name: 'productDetailsWithFade', data: selectedProduct} -->
+                    <!-- ko template: {name: 'productDetailsWithJqButton', data: selectedProduct} -->
                     <!-- /ko -->
                 </div>
             </div>

@@ -34,16 +34,24 @@
         self.isSelected = ko.computed(function () {
             return selectedItem() === self;
         });
-        self.isGuitar = ko.computed(function() {
+        self.isGuitar = ko.computed(function () {
             return this.category() ? this.category().id() === 1 : false;
         }, self),
         //this.shortDescription = ko.observable();
-        self.shortDesc = ko.computed(function() {
+        self.shortDesc = ko.computed(function () {
             return this.model() ? this.model().brand() + " " + this.model().name() : "";
         }, self),
-        self.photoUrl = ko.computed(function() {
+        self.photoUrl = ko.computed(function () {
             return photoPath + this.photo();
         }, self);
+        self.stateHasChanged = ko.observable(false);
+        self.save = function () {
+            alert("new rating of " + self.rating() + " saved");
+            self.stateHasChanged(false);
+        };
+        self.rating.subscribe(function(){
+            self.stateHasChanged(true);
+        });
     };
 
     // The ViewModel

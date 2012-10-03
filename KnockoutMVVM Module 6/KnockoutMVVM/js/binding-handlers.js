@@ -21,4 +21,14 @@
             shouldDisplay ? $(element).fadeIn(duration) : $(element).fadeOut(duration);
         }
     };
+
+    ko.bindingHandlers.jqButton = {
+        init: function (element, valueAccessor) {
+            $(element).button();
+        },
+        update: function (element, valueAccessor, allBindingsAccessor) {
+            var value = valueAccessor();
+            $(element).button("option", "disabled", value.enabled === false);
+        }
+    };
 })();
