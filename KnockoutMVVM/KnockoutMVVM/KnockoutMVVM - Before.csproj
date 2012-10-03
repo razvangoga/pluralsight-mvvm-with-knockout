@@ -90,6 +90,8 @@
     <Content Include="html\5-05-dynamic-templates-and-item-selection.html" />
     <Content Include="html\5-06-toggle-templates.html" />
     <Content Include="html\5-07-afterAdd-beforeRemove-and-arrayFilter.html" />
+    <Content Include="html\5-08-containerless.html" />
+    <Content Include="html\5-09-external.html" />
     <Content Include="images\314ce.png" />
     <Content Include="images\Dunlop Trigger Classical Guitar Capo.png" />
     <Content Include="images\El Dorado Vintage Hand-Tooled Leather Guitar Strap.png" />
@@ -129,13 +131,22 @@
     <Content Include="Scripts\5-05-dynamic-templates-and-item-selection.js" />
     <Content Include="Scripts\5-06-toggle-templates.js" />
     <Content Include="Scripts\5-07-afterAdd-beforeRemove-and-arrayFilter.js" />
+    <Content Include="Scripts\5-08-containerless.js" />
+    <Content Include="Scripts\5-09-external.js" />
     <Content Include="Scripts\data.js" />
     <Content Include="Scripts\jquery-1.8.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
+    <Content Include="Scripts\koExternalTemplateEngine_all.js" />
+    <Content Include="Scripts\koExternalTemplateEngine_all.min.gz.js" />
+    <Content Include="Scripts\koExternalTemplateEngine_all.min.js" />
     <Content Include="Scripts\utils.js" />
+    <Content Include="templates\metadata\header.tmpl.html" />
+    <Content Include="templates\metadata\topics.tmpl.html" />
+    <Content Include="templates\productDetails.tmpl.html" />
+    <Content Include="templates\productSummary.tmpl.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
