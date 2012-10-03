@@ -65,13 +65,16 @@
         },
             products = ko.observableArray([]),
             selectedProduct = ko.observable(),
-            
+            canShowDetails = ko.observable(false),
+            closeDetails = function () {
+                canShowDetails(false);
+            },
             sortFunction = function (a, b) {
                 return a.shortDesc().toLowerCase() > b.shortDesc().toLowerCase() ? 1 : -1;
             },
             selectProduct = function (p) {
                 selectedProduct(p);
-                
+                canShowDetails(true);
             },
             productsToShow = ko.computed(function () {
                 return ko.utils.arrayFilter(products(), function (p) {
@@ -104,7 +107,9 @@
             selectedProduct: selectedProduct,
             selectProduct: selectProduct,
             productsToShow: productsToShow,
-            loadProducts: loadProducts
+            loadProducts: loadProducts,
+            canShowDetails: canShowDetails,
+            closeDetails: closeDetails
         };
     } ();
 

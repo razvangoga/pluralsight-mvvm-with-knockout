@@ -9,6 +9,7 @@
     <script src="/scripts/koExternalTemplateEngine_all.js" type="text/javascript"></script>
     <script src="/js/data.js" type="text/javascript"></script>
     <script src="/js/utils.js" type="text/javascript"></script>
+    <script src="../js/binding-handlers.js" type="text/javascript"></script>
     <script src="/js/6-01-custom-binding-handlers-fadeVisible.js" type="text/javascript"></script>
 </head>
 <body>
@@ -19,21 +20,27 @@
             <div class="leftFloat">
                 <table>
                     <thead>
-                        <tr><td>Product</td></tr>
+                        <tr>
+                            <td>
+                                Product
+                            </td>
+                        </tr>
                     </thead>
                     <tbody>
                         <!-- ko foreach:productsToShow -->
                         <tr data-bind="click:$parent.selectProduct, css: { selectedRow: isSelected}" class="selectableRow">
-                            <td><span data-bind="text: shortDesc"></span></td>
+                            <td>
+                                <span data-bind="text: shortDesc"></span>
+                            </td>
                         </tr>
                         <!-- /ko -->
                     </tbody>
                 </table>
             </div>
             <!-- ko if: selectedProduct() -->
-            <div class="leftFloat" >
+            <div class="leftFloat" data-bind="fadeVisible: canShowDetails(), fadeDuration: 2000">
                 <div class="productDetailsArea">
-                    <!-- ko template: {name: 'productDetails', data: selectedProduct} -->
+                    <!-- ko template: {name: 'productDetailsWithFade', data: selectedProduct} -->
                     <!-- /ko -->
                 </div>
             </div>
