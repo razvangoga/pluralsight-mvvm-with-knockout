@@ -52,8 +52,11 @@
             },
             products = ko.observableArray([]),
             selectedProduct = ko.observable(),
+            productView = function () {
+                return showDetails() ? "productDetails" : "productSummary";
+            },
             showDetails = ko.observable(false),
-        //private custom sort function
+            //private custom sort function
             sortFunction = function (a, b) {
                 return a.shortDesc().toLowerCase() > b.shortDesc().toLowerCase() ? 1 : -1;
             },
@@ -89,7 +92,8 @@
             selectedProduct: selectedProduct,
             showDetails: showDetails,
             selectProduct: selectProduct,
-            loadProducts: loadProducts
+            loadProducts: loadProducts,
+            productView: productView
         };
     } ();
 

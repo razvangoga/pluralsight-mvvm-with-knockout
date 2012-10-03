@@ -109,10 +109,14 @@
     <Content Include="images\Pick08.png" />
     <Content Include="images\Pick09.png" />
     <Content Include="images\Planet Waves NS Classical Guitar Capo.png" />
+    <Content Include="images\T814ce_tobacco+sunburst.jpg" />
+    <Content Include="images\T914ce.jpg" />
+    <Content Include="images\T916ce_tobacco+sunburst.jpg" />
     <Content Include="images\Taylor 314-CE Left-Handed Grand Auditorium Acoustic-Electric Guitar.png" />
     <Content Include="images\Taylor Baby Taylor Left-Handed Acoustic Guitar.png" />
     <Content Include="images\Taylor Koa Series K66ce Grand Symphony 12-String Cutaway Acoustic Electric Guitar.png" />
     <Content Include="images\Taylor T5 Standard Acoustic-Electric Guitar with Spruce Top.png" />
+    <Content Include="images\TDMSM_front_print.jpg" />
     <Content Include="Scripts\4-01-namespace.js" />
     <Content Include="Scripts\4-02-object-literal.js" />
     <Content Include="Scripts\4-03-module-pattern.js" />

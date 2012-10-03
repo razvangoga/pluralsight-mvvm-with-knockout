@@ -1,5 +1,5 @@
 ﻿body {padding : 10px; }
-body, input, select {font: 14px 'SansationRegular', 'Segoe UI', Arial, sans-serif;}
+body, input, select {font: 14px 'Segoe UI', 'SansationRegular', Arial, sans-serif;}
 .page {    
 }
 .showroom {
@@ -19,6 +19,9 @@ ul li span {
 		width: 40px;
 }
 */
+.leftFloat {
+    float: left;
+}
 .alignedCaption {
 		float: left;
 		width: 40px;
@@ -53,7 +56,7 @@ input[type=text] {
     width: 50px;
 }
 select {
-	width: 120px;
+	width: 150px;
 }
 .productsSelect {
 	width: 550px;
@@ -68,12 +71,70 @@ table {
 	margin: 8px;
 }
 thead {
-	font: 14px 'SansationBold', 'Segoe UI', Arial, sans-serif;
+	font: 14px 'Segoe UI', 'SansationBold', Arial, sans-serif;
 }
 td {
     padding: 8px 0 8px 0;
 	border-bottom: 1px solid lightgray;
 }
+.smallList {
+	margin: 0px;
+    padding-left: 0em;
+	height: 280px;
+	width: 240px;
+	/*border: gray solid thin;
+	overflow:scroll;
+	overflow-x: hidden;*/
+}
+.selectable {
+    list-style: none;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 30px;
+    padding: 4px;
+    margin: 4px;
+    float: left;
+    -o-text-overflow: ellipsis; /* Opera */
+    text-overflow: ellipsis; /* IE, Safari (WebKit) */
+    overflow: hidden; /* don't show excess chars */
+    list-style: none;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+
+    color: white;
+
+    background-color: rgb(101, 189, 249);
+}
+.selectable:hover
+{
+    background-color: rgb(12, 75, 118);
+    cursor: pointer;
+    -moz-box-shadow:8px 8px 5px #655e5e;
+    -webkit-box-shadow:8px 8px 5px #655e5e;
+    box-shadow:8px 8px 5px #655e5e;
+}
+.selected {
+    background-color: black;
+    color: whitesmoke;
+    -moz-box-shadow:8px 8px 5px #655e5e;
+    -webkit-box-shadow:8px 8px 5px #655e5e;
+    box-shadow:8px 8px 5px #655e5e;
+}
+.productDetailsArea {
+    margin: 3em 0;
+    width: 500px;
+    float: left;
+	/*background-color: #f4f8fc;*/
+	border: lightgray solid 1px;
+    padding: 1em;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+    -moz-box-shadow:4px 4px 3px #655e5e;
+    -webkit-box-shadow:4px 4px 3px #655e5e;
+    box-shadow:4px 4px 3px #655e5e;}
 .resultsPanel 
 {
 	margin: 8px;
@@ -158,6 +219,7 @@ button[disabled]:active {
 }
 .photoContainer
 {
+	min-width: 50px;
 	height:100px;
 }
 li
@@ -166,21 +228,36 @@ li
 	list-style: none;
 	padding: 0;
 }
-div#indexLinks ul li {
+.sideBySideColumns
+{
+    float: left;
+    width: 400px;
+    margin: 0px;
+    padding: 4px;
+}
+div#indexLinks ul 
+{
+    margin-bottom: 20px;
+}div#indexLinks ul li {
 	list-style: none;
 }
 div#indexLinks ul > li > ul > li {
 	list-style: decimal;
 }
+
 .personalCss {
 	margin-left: 50px;
 }
 .carResults {
 	margin: 50px;
 }
+#main {
+    float: left;
+    margin-bottom: 20px;
+}
 .topics 
 {
-	margin: 30px 0 10px 20px;
+    margin: 2em 0 0 0;
 	padding: 10px;
 	width: 300px;
 	background-color: #eeeeee;
@@ -188,6 +265,7 @@ div#indexLinks ul > li > ul > li {
 	-moz-border-radius: 20px;
 	-webkit-border-radius: 20px;
 	border-radius: 20px;
+    clear: both;
 }
 div[class=topics] span {
 	color: navy;
@@ -195,4 +273,7 @@ div[class=topics] span {
 }
 div[class=topics] li {
 	color: navy;
+}
+.tmpl {
+    display: none;
 }

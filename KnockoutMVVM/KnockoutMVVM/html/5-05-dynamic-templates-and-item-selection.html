@@ -38,7 +38,7 @@
                     <div>
                         <input type="checkbox" data-bind="checked: showDetails" /><span>Expand Details</span>
                     </div>
-                    <div data-bind="template: {name: 'productSummary'}">
+                    <div data-bind="template: {name: productView}">
                     </div>
                     <script id="productSummary" type="text/html">
                         <div data-bind="with: selectedProduct().model">
