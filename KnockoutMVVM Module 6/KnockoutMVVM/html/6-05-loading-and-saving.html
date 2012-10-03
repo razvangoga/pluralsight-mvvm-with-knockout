@@ -54,7 +54,7 @@
                     <div class="cartSummaryContainer">
                         <span>Total Items</span><span data-bind="text:shoppingCart().length"></span>
                         <span>Total Price</span><span data-bind="text:my.formatCurrency(grandTotal())"></span>
-                        <button data-bind="jqButton: { enable: shoppingCart().length > 0}">Place Order</button>
+                        <button data-bind="jqButton: { enable: shoppingCart().length > 0}, click:placeOrder">Place Order</button>
                     </div>
                 </div>
             </div>
