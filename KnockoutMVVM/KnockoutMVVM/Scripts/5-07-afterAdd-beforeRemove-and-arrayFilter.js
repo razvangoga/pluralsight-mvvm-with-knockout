@@ -31,6 +31,10 @@
         self.isSelected = ko.computed(function () {
             return selectedItem() === self;
         });
+
+        self.isGuitar = ko.computed(function () {
+            return this.category() ? this.category().id() === 1 : false
+        }, self);
         //this.shortDescription = ko.observable();
         self.shortDesc = ko.computed(function () {
             return this.model() ? this.model().brand() + " " + this.model().name() : "";
@@ -50,13 +54,34 @@
             }
         },
             products = ko.observableArray([]),
+            showAll = ko.observable(),
+            productsToShow = ko.computed(function () {
+                if (showAll()) {
+                    return products();
+                }
+                return ko.utils.arrayFilter(products(), function (p) {
+                    return p.isGuitar();
+                });
+            }),
             selectedProduct = ko.observable(),
-            showDetails = ko.observable(false),
-            //private custom sort function
-            sortFunction = function(a, b) {
+            showProducts = function (elem) {
+                if (elem.nodeType === 1) {
+                    $(elem).hide().slideDown();
+                }
+            },
+            hideProducts = function (elem) {
+                if (elem.nodeType === 1) {
+                    $(elem).slideUp(function () {
+                        $(elem).remove();
+                    });
+                }
+            },
+        showDetails = ko.observable(false),
+        //private custom sort function
+            sortFunction = function (a, b) {
                 return a.shortDesc().toLowerCase() > b.shortDesc().toLowerCase() ? 1 : -1;
             },
-            selectProduct = function(p) {
+            selectProduct = function (p) {
                 selectedProduct(p);
             };
         loadProducts = function () {
@@ -86,7 +111,11 @@
             selectedProduct: selectedProduct,
             showDetails: showDetails,
             selectProduct: selectProduct,
-            loadProducts: loadProducts
+            loadProducts: loadProducts,
+            showAll: showAll,
+            productsToShow: productsToShow,
+            showProducts: showProducts,
+            hideProducts: hideProducts
         };
     } ();
 
