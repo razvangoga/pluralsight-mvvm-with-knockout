@@ -92,7 +92,7 @@
                         return $(elem).fadeOut(1000);
                     };
                     effect();
-                    
+
                     //.promise().done(function () { alert('removed!'); });
 
                     //$.when(effect()).done(function () { alert('removed!'); });
@@ -148,12 +148,24 @@
 
     (function () {
         var itemSelector = "ul li.mediumProductSquares";
-        // .on()
+        //on
+        $(itemSelector).on("click", "div.closeIcon", function () {
+            my.vm.removeProduct(ko.dataFor(this));
+        });
 
-        // .delegate()
+        //delegate
+        //        $(itemSelector).delegate("div.closeIcon","click", null, function () {
+        //            my.vm.removeProduct(ko.dataFor(this))
+        //        });
 
-        // select the entire item
-        
+        $(itemSelector).on("click", function () {
+            var selproduct = ko.dataFor(this);
+            var selContext = ko.contextFor(this);
+            var vm = selContext.$root;
+
+            alert(selproduct.shortDesc());
+        });
+
 
     })();
 });
