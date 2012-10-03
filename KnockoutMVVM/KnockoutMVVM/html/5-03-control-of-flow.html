@@ -27,38 +27,7 @@
                         <thead>
                             <tr><th></th><th>Product</th><th>Price</th><th>Quantity</th><th>Ext. Price</th><th></th></tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td style="width: 25px;">
-                                    <select data-bind="options:products, value:product, optionsText: 'shortDesc', optionsCaption:'Select a product ...'">
-                                    </select>
-                                </td>
-                                <td style="width: 50px;" >
-                                    <div>
-                                        <img data-bind="attr: {src: product().photoUrl, alt:product().shortDesc, title:product().shortDesc}" class="photoThumbnail" />
-                                    </div>
-                                    <div>
-                                        <div data-bind="text: product().model().brand" class="textValues">
-                                        </div>
-                                        <div data-bind="text: product().model().name" class="textValues">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td style="width: 100px;">
-                                    <span data-bind="text: my.formatCurrency(product().salePrice())" class="textValues"></span>
-                                </td>
-                                <td style="width: 100px;">
-                                    <input data-bind="visible: product, value: quantity, valueUpdate: 'afterkeydown'"
-                                        class="integerInput" />
-                                </td>
-                                <td style="width: 100px;">
-                                    <span data-bind="visible: product, text: my.formatCurrency(extendedPrice())" class="textValues">
-                                    </span>
-                                </td>
-                                <td style="width: 100px;">
-                                    <a href="#" data-bind="click: removeLine">Remove</a>
-                                </td>
-                            </tr>
+                        <tbody data-bind="template: {name: 'productsTempl', foreach: lines}">
                         </tbody>
                     </table>
                     <div data-bind="template: {name: 'totalsTmpl'}">
@@ -73,6 +42,39 @@
             </p>
             <button data-bind="click: addLine">
                 Add product</button>
+        </script>
+        <script type="text/html" id="productsTempl">
+            <tr>
+                <td style="width: 25px;">
+                    <select data-bind="options: $root.products, value:product, optionsText: 'shortDesc', optionsCaption:'Select a product ...'">
+                    </select>
+                </td>
+                <td style="width: 50px;" data-bind="if: product">
+                    <div>
+                        <img data-bind="attr: {src: product().photoUrl, alt:product().shortDesc, title:product().shortDesc}" class="photoThumbnail" />
+                    </div>
+                    <div>
+                        <div data-bind="text: product().model().brand" class="textValues">
+                        </div>
+                        <div data-bind="text: product().model().name" class="textValues">
+                        </div>
+                    </div>
+                </td>
+                <td style="width: 100px;" data-bind="if: product">
+                    <span data-bind="text: my.formatCurrency(product().salePrice())" class="textValues"></span>
+                </td>
+                <td style="width: 100px;" data-bind="if: product">
+                    <input data-bind="value: quantity, valueUpdate: 'afterkeydown'"
+                        class="integerInput" />
+                </td>
+                <td style="width: 100px;" data-bind="if: product">
+                    <span data-bind="text: my.formatCurrency(extendedPrice())" class="textValues">
+                    </span>
+                </td>
+                <td style="width: 100px;">
+                    <a href="#" data-bind="click: $parent.removeLine">Remove</a>
+                </td>
+            </tr>        
         </script>
         <div class="topics">
             <span>Explores:</span>
