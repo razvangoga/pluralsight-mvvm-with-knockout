@@ -106,6 +106,7 @@
                 { desc: "custom binding handler: jqDialog"}]
         },
             shoppingCart = ko.observableArray([]),
+            tracker = new ko.ChangeTracker(shoppingCart),
             dialogOptions = new my.DialogOptions(),
             defaultAnimationSpeed = 500,
             products = ko.observableArray([]),
@@ -155,6 +156,7 @@
                 return total;
             }),
             loadProductsCallback = function (json) {
+                my.vm.tracker().markCurrentStateAsClean();
                 $.each(json, function (i, p) {
                     products.push(new my.Product(selectedProduct)
                             .id(p.Id)
@@ -180,6 +182,7 @@
                 my.shoppingDataService.getSaleItems(my.vm.loadProductsCallback);
             },
             placeOrderCallback = function (json) {
+                my.vm.tracker().markCurrentStateAsClean();
                 dialogOptions.title("Place Order").text(json.message).open(true);
             },
             placeOrder = function () {
@@ -188,6 +191,7 @@
         return {
             metadata: metadata,
             dialogOptions: dialogOptions,
+            tracker: tracker,
             selectedProduct: selectedProduct,
             selectProduct: selectProduct,
             products: products,

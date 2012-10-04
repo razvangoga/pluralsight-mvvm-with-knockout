@@ -5,12 +5,12 @@
     <title>Knockout: Change Tracking</title>
     <link href="/css/fonts.css" rel="stylesheet" type="text/css" />
     <link href="/css/styles.css" rel="stylesheet" type="text/css" />
-    <link href="/Content/themes/ui-lightness/jquery-ui-1.8.17.custom.css" rel="stylesheet"
-        type="text/css" />
+    <link href="/Content/themes/ui-lightness/jquery-ui-1.8.17.custom.css" rel="stylesheet" type="text/css" />
     <script src="/scripts/jquery-1.8.2.js" type="text/javascript"></script>
     <script src="/scripts/knockout-2.1.0.js" type="text/javascript"></script>
     <script src="/scripts/koExternalTemplateEngine_all.js" type="text/javascript"></script>
     <script src="/scripts/jquery-ui-1.8.24.js" type="text/javascript"></script>
+    <script src="/scripts/knockout.changetracker.js" type="text/javascript"></script>
     <script src="/js/utils.js" type="text/javascript"></script>
     <script src="/js/ajaxservice.js" type="text/javascript"></script>
     <script src="/js/dataservice.shopping.js" type="text/javascript"></script>
@@ -53,8 +53,8 @@
                     <div class="cartSummaryContainer">
                         <span>Total Items</span><span data-bind="text:shoppingCart().length"></span>
                         <span>Total Price</span><span data-bind="text:my.formatCurrency(grandTotal())"></span>
-                        <button data-bind="jqButton: { enable: shoppingCart().length > 0}, click: $root.placeOrder">Place Order</button>
-                        
+                        <button data-bind="jqButton: { enable: tracker().somethingHasChanged()}, click: $root.placeOrder">Place Order</button>
+                        <span data-bind="text: tracker().somethingHasChanged()"></span>
                     </div>
                 </div>
             </div>

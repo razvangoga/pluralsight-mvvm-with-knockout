@@ -28,7 +28,7 @@
         },
         update: function (element, valueAccessor, allBindingsAccessor) {
             var value = valueAccessor();
-            $(element).button("option", "disabled", value.enabled === false);
+            $(element).button("option", "disabled", value.enable === false);
         }
     };
 
