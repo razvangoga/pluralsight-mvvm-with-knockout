@@ -188,12 +188,13 @@
     <Content Include="scripts\jquery-1.8.2-vsdoc.js" />
     <Content Include="scripts\jquery-1.8.2.js" />
     <Content Include="scripts\jquery-1.8.2.min.js" />
-    <Content Include="scripts\jquery-ui-1.8.23.js" />
-    <Content Include="scripts\jquery-ui-1.8.23.min.js" />
+    <Content Include="scripts\jquery-ui-1.8.24.js" />
+    <Content Include="scripts\jquery-ui-1.8.24.min.js" />
     <Content Include="scripts\jquery-ui.js" />
     <Content Include="scripts\jquery-ui.min.js" />
     <Content Include="scripts\knockout-2.1.0.debug.js" />
     <Content Include="scripts\knockout-2.1.0.js" />
+    <Content Include="scripts\knockout.changetracker.js" />
     <Content Include="scripts\koExternalTemplateEngine-amd.js" />
     <Content Include="scripts\koExternalTemplateEngine-amd.min.js" />
     <Content Include="scripts\koExternalTemplateEngine.js" />
